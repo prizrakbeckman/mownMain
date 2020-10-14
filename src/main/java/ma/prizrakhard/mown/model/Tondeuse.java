@@ -1,5 +1,6 @@
 package ma.prizrakhard.mown.model;
 
+// Contient la position et la séquence des directives
 public class Tondeuse {
 	
 	private Position position;

@@ -148,6 +148,7 @@ public class PositionUtil {
 				: positionsOccupees[pos.getX()][pos.getY() - 1] == 1);
 
 		}
+		
 		boolean isCollision = false;
 		if (predicate.test(p))
 			isCollision = true;

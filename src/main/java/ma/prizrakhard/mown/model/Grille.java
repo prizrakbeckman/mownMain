@@ -1,5 +1,7 @@
 package ma.prizrakhard.mown.model;
 
+
+// Classe utilisée pour stocker la taille de la grille
 public class Grille {
 	private int longueur;
 	private int largeur;

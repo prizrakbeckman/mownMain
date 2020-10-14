@@ -1,15 +1,16 @@
 package ma.prizrakhard.mown.main;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 import java.util.function.Predicate;
-import java.util.logging.Logger;
+
+import org.apache.log4j.Logger;
 
 import ma.prizrakhard.mown.model.Grille;
 import ma.prizrakhard.mown.model.Position;
@@ -18,8 +19,27 @@ import ma.prizrakhard.mown.util.Constantes;
 import ma.prizrakhard.mown.util.PositionUtil;
 
 public class MownMain {
-
+	
+	private static Logger logger = Logger.getLogger(MownMain.class);
+	
+	// Cet attribut est utilisé pour le test unitaire sur les valeurs données en exemple dans le test.
+	private static List<Tondeuse> listFinal = new ArrayList<Tondeuse>();
+	
 	public static void main(String[] args) {
+		printValuesOfPositions();
+	}
+	
+ ;
+	
+	private static void initPositionOccupees(int[][] positionOccupees) {
+		for(int i=0;i<positionOccupees.length;i++) {
+			for(int j=0; j<positionOccupees[i].length;j++) {
+				positionOccupees[i][j]=0;
+			}
+		}
+	}
+	
+	public static void printValuesOfPositions() {
 		int[][] positionOccupees;
 		Predicate<String> predicateAvance = s -> Constantes.AVANCER.equalsIgnoreCase(s);
 		Predicate<String> predicateGauche = s -> Constantes.GAUCHE.equalsIgnoreCase(s);
@@ -56,25 +76,20 @@ public class MownMain {
 						PositionUtil.getPosition(p, orientation);
 					} 
 				});
-				System.out.println(t);
+				
 				positionOccupees[t.getPosition().getX()-1][t.getPosition().getY()-1] = 1;
-
+				logger.info(t);
+				listFinal.add(t);
 			});
 
-			System.err.println("");
 
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 	
-	private static void initPositionOccupees(int[][] positionOccupees) {
-		for(int i=0;i<positionOccupees.length;i++) {
-			for(int j=0; j<positionOccupees[i].length;j++) {
-				positionOccupees[i][j]=0;
-			}
-		}
+	public static List<Tondeuse> getListFinal() {
+		return listFinal;
 	}
 
 }
