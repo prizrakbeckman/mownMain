@@ -1,4 +1,4 @@
-En résolvant ce problème, j'ai suivi plusieurs régles dont les suivantes :
+En résolvant ce problème, j'ai suivi plusieurs règles dont les suivantes :
 Les directives possibles sont les suivantes :
 
 ***SUD + GAUCHE = EST
@@ -10,7 +10,8 @@ OUEST + DROITE = NORD
 EST + GAUCHE = NORD
 EST + DROITE = SUD,***
 
-****X,Y**** sont respectivement les coordonnées de la position de la tondeuse.
+****X,Y**** sont respectivement les coordonnées de la position de la tondeuse. Lorsqu'on avance, les directions de la tondeuses changenent 
+potentiellement selon ses règles.
 
 ***OUEST + AVANCE = X - 1
 EST + AVANCE = X + 1
