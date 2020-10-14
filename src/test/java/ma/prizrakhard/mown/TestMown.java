@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.function.Predicate;
 
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,17 +16,18 @@ import ma.prizrakhard.mown.model.Tondeuse;
 
 public class TestMown {
 	
+	private static final Logger log = Logger.getLogger(TestMown.class);
 
 	
 	@Before
 	public void initlistTondeuse() {
-		System.out.println("Tester le programme ");
+		log.info("Tester le programme ");
 		
 	}
 	@Test
 	public void testMown() {
 
-		Predicate<List<Tondeuse>> predicateTondeuse = (tondeuss) ->{
+		Predicate<List<Tondeuse>> predicateTondeuse = tondeuss ->{
 			Position p0 = tondeuss.get(0).getPosition();
 			return (p0.getX() == 1 && p0.getY()==3 && p0.getDirection().equals(DirectionEnum.NORD) );
 			 

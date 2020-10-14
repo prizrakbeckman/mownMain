@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.function.Predicate;
 
+import org.apache.log4j.Logger;
+
 import ma.prizrakhard.mown.model.Grille;
 import ma.prizrakhard.mown.model.Position;
 import ma.prizrakhard.mown.model.Tondeuse;
@@ -21,6 +23,8 @@ public class MownMain {
 	// Cet attribut est utilisé pour le test unitaire sur les valeurs données en
 	// exemple dans le test.
 	private static List<Tondeuse> listFinal = new ArrayList<>();
+
+	private static final Logger log = Logger.getLogger(MownMain.class);
 
 	public static void main(String[] args) {
 		printValuesOfPositions();
@@ -35,11 +39,14 @@ public class MownMain {
 	}
 
 	public static void printValuesOfPositions() {
+		
 		int[][] positionOccupees;
 		Predicate<String> predicateAvance = Constantes.AVANCER::equalsIgnoreCase;
 		Predicate<String> predicateGauche = Constantes.GAUCHE::equalsIgnoreCase;
 		Predicate<String> predicateGaucheOuDroite = predicateGauche.or(Constantes.DROITE::equalsIgnoreCase);
 
+		log.info("Beginning of program");
+		
 		try {
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();
 			String resourceName = "conf/appProperties.properties"; // could also be a constant
@@ -74,18 +81,17 @@ public class MownMain {
 					});
 
 					positionOccupees[t.getPosition().getX() - 1][t.getPosition().getY() - 1] = 1;
-					System.out.println(t);
+					log.info(t);
 					listFinal.add(t);
 				});
 
 			} catch (Exception e) {
-				System.err.print(e.getMessage());
+				log.error(e.getMessage());
 			}
 		} catch (Exception e) {
-			System.err.print(e.getMessage());
-		}
-		finally {
-			System.err.println("End of program");
+			log.error(e.getMessage());
+		} finally {
+			log.error("End of program");
 		}
 	}
 
