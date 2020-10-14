@@ -83,7 +83,8 @@ public class MownMain {
 			}
 		} catch (Exception e) {
 			System.err.print(e.getMessage());
-		} finally {
+		}
+		finally {
 			System.err.println("End of program");
 		}
 	}
