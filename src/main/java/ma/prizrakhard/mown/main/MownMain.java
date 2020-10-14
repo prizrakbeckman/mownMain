@@ -19,9 +19,7 @@ import ma.prizrakhard.mown.util.Constantes;
 import ma.prizrakhard.mown.util.PositionUtil;
 
 public class MownMain {
-	
-	private static Logger logger = Logger.getLogger(MownMain.class);
-	
+		
 	// Cet attribut est utilisé pour le test unitaire sur les valeurs données en exemple dans le test.
 	private static List<Tondeuse> listFinal = new ArrayList<Tondeuse>();
 	

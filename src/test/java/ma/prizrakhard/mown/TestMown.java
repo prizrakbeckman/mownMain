@@ -2,11 +2,9 @@ package ma.prizrakhard.mown;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +15,6 @@ import ma.prizrakhard.mown.model.Tondeuse;
 
 public class TestMown {
 	
-	private static Logger logger = Logger.getLogger(MownMain.class);
 
 	
 	@Before
