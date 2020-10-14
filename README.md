@@ -29,5 +29,8 @@ La lecture du fichier se fait via un ****buffered reader****,au cas où le ****f
 *****J'ai alimenté une liste tondeuses depuis le fichier. Le résultat de la liste a été stocké dans un attribut statique, sur lesquel j'ai fait mon test unitaire*****
 
 
+J'ai créé un fichier properties depuis lequel j'ai lu le nom du fichier des tondeuses.
+
 Pour exécuter le projet, on doit l'importer en tant que projet maven builder le projet maven, pour récupérer les JAR des Log4j dans le pom.xml (j'ai utilisé ça pour le logging au lieu de faire des system.out.println) puis *****lancer la classe MownMain***** ou bien lancer le test unitaire que j'ai créé *****TestMown.testMown()*****
 
+Sinon pour éviter d'utiliser Maven, on peut faire le checkout sur la branche project_without_maven, importer le projet dans eclipse, à condition d'avoir java 8 settée dans le workspace, et lancer directement la classe MownMain. On peut faire le clone du projet, puis faire le checkout sur la branche *****project_without_maven*****
