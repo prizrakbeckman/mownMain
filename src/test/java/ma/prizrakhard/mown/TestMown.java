@@ -22,7 +22,7 @@ public class TestMown {
 	
 	@Before
 	public void initlistTondeuse() {
-		logger.info("Tester le programme ");
+		System.out.println("Tester le programme ");
 		
 	}
 	@Test

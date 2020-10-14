@@ -78,13 +78,13 @@ public class MownMain {
 				});
 				
 				positionOccupees[t.getPosition().getX()-1][t.getPosition().getY()-1] = 1;
-				logger.info(t);
+				System.out.println(t);
 				listFinal.add(t);
 			});
 
 
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 	}
 	
